@@ -18,5 +18,10 @@ public class FragmentA extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_a,  container, false);
+
+        editText = v.findViewById(R.id.edit_text);
+        buttonOk = v.findViewById(R.id.button_ok);
     }
 }
+
+
