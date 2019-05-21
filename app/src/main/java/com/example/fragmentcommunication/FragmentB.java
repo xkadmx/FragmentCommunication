@@ -11,19 +11,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class FragmentA extends Fragment {
-    private FragmentAListener listener;
+public class FragmentB extends Fragment {
+    private FragmentBListener listener;
     private EditText editText;
     private Button buttonOk;
 
-    public interface FragmentAListener{
-        void onInputASent(CharSequence input);
+    public interface FragmentBListener{
+        void onInputBSent(CharSequence input);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_a,  container, false);
+        View v = inflater.inflate(R.layout.fragment_b,  container, false);
 
         editText = v.findViewById(R.id.edit_text);
         buttonOk = v.findViewById(R.id.button_ok);
@@ -31,7 +31,7 @@ public class FragmentA extends Fragment {
             @Override
             public void onClick(View v) {
                 CharSequence input = editText.getText(); // getting input from editText widget
-                listener.onInputASent(input); // using interface method to send text to activity
+                listener.onInputBSent(input); // using interface method to send text to activity
             }
         });
 
@@ -44,11 +44,11 @@ public class FragmentA extends Fragment {
     @Override
     public void onAttach(Context context) { //callback method
         super.onAttach(context);
-        if (context instanceof FragmentAListener) { //context is our activity; checking if activity implements interface
-            listener = (FragmentAListener) context;
+        if (context instanceof FragmentBListener) { //context is our activity; checking if activity implements interface
+            listener = (FragmentBListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement FragmentAListener");
+                    + " must implement FragmentBBListener");
         }
     }
 
