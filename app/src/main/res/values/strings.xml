@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FragmentCommunication</string>
+    <string name="buttonOKText">Ok</string>
+    <string name="Txt_hint">Txt</string>
 </resources>
