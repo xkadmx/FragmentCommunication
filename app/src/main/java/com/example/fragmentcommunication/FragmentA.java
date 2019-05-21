@@ -41,12 +41,19 @@ public class FragmentA extends Fragment {
     @Override
     public void onAttach(Context context) { //callback method
         super.onAttach(context);
-        if(context instanceof FragmentAListener){ //context is our activity; checking if activity implements interface
+        if (context instanceof FragmentAListener) { //context is our activity; checking if activity implements interface
             listener = (FragmentAListener) context;
-    }else{
+        } else {
             throw new RuntimeException(context.toString()
-            + " must implement FragmentAListener");
+                    + " must implement FragmentAListener");
         }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+    }
 }
 
 
